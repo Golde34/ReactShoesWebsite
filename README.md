@@ -10,4 +10,5 @@ npm i --save-dev eslint morgan mysql2 nodemon sequelize sequelize-cli
 
 All of FE and BE server use this command: npm start.
 
+When you run back-end code, there is no data in my system. You must create the database and run dataInsert.js after you add all data from data-js-file which is saved under the dictionary type.
 If you have any problem, just make sure that you have react-router V6.
