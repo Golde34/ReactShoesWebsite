@@ -8,5 +8,6 @@ npm install jquery popper.js react-chartjs-2 chart.js
 + Backend: npm i bcryptjs body-parser dotenv express express-async-handler express-mysql-session express-session init jsonwebtoken moment mysql multer
 npm i --save-dev eslint morgan mysql2 nodemon sequelize sequelize-cli
 
-All of FE and BE server use this command: npm start
+All of FE and BE server use this command: npm start.
+
 If you have any problem, just make sure that you have react-router V6.
