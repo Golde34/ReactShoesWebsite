@@ -1,0 +1,14 @@
+.order-title {
+    margin-left: 30px;
+    padding: 20px 0px;
+}
+
+.table {
+    text-align: center;
+    
+} 
+
+thead.h>tr {
+    background-color: rgb(0, 80, 0);
+    color: white;
+}

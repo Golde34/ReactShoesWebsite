@@ -1,0 +1,52 @@
+
+.admin-home,
+.admin-orders {
+  display: flex;
+  height: 85vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.admin-products{
+    display: flex;
+    height: 85vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    position: relative;
+    top: 20px;
+}
+.contentInside{
+  width: 80%;
+  padding: 20px;
+}
+
+.addproduct{
+  position: relative;
+  top: -46px;
+  right: -264px;
+  width: 70%;
+}
+
+#image-product-manage {
+  height: 100px;
+  width: 100px;
+}
+
+
+.image-input{
+  display: flex;
+  width: 20%;
+}
+
+
+.addPro{
+  line-height: 0.1;
+}
+.content{
+  display: flex;
+  flex-direction: row;
+}
+.chart{
+  margin-left: 20px;
+}

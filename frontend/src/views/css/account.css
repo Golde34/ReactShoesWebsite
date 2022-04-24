@@ -1,0 +1,9 @@
+
+.signin-up {
+    background: linear-gradient(to right, #046c0b 38%, #f7e702 100%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    font-size: 22px;
+}

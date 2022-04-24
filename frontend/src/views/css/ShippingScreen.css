@@ -1,0 +1,84 @@
+#content-form {
+    max-width: 70rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+  }
+#content-form > div {
+    display: flex;
+    flex-direction: column; 
+    margin: 0.5rem !important;
+  }
+#form-ship{
+    width: 60%;
+}
+.shipping-address{
+    max-width: 500px;
+    width: 80%;
+    border-style: groove;
+    margin-right: 10px;
+    padding-bottom: 20px;
+
+}
+
+.shipping-address > div {
+    margin-left: 10px;
+    width: 80%;
+   
+}
+.shipping-address > div > input{
+    width: 100%;
+}
+
+.payment-method{
+    max-height: 300px;
+}
+.payment-method > div > div > label{
+    width: 100px;
+    display: inline;
+    margin-left: 20px;
+}
+.payment-method > div > div > input{
+    font-size: 20px;
+}
+
+.payment-method > div > div {
+    font-size: 20px;
+}
+
+.small1 {
+    float: left;
+    width: 60%; 
+
+}
+
+.Row {
+    position: relative;
+    margin-left: 5px;
+}
+
+.btnn {
+    font-weight: bold;
+    margin-top: 1.5vw;
+    width: 7vw;
+    margin-right: 2vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.checkout-steps > div.active{
+    border-top-color: #f08000;
+    color: #f08000;
+}
+
+.checkout-steps > div {
+
+    
+    text-align: center;
+    border-top: 0.3rem #c0c0c0 solid;
+    color: #c0c0c0;
+    flex: 1 1;
+    padding: 1rem;
+    font-weight: bold;
+}
