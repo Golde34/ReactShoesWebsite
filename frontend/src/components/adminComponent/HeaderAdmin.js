@@ -18,7 +18,7 @@ export default function HeaderAdmin() {
     const dispatch = useDispatch();
 
     const signoutHandler = () => {
-        dispatch(signout);
+        dispatch(signout());
     };
     const submitAction = (e) => {
         e.preventDefault();

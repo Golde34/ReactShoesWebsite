@@ -47,7 +47,7 @@ function App() {
       <div className="App">
         <main>
           {userInfo && userInfo.isAdmin ? (
-            <div className='row ahihi'>
+            <div className='row default'>
               <AdminSidebar />
               <div className='row contentInside'>
                 <Routes>

@@ -5,8 +5,8 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./AdminSidebarData";
 import "../css/Admin_sidebar.css";
-import SubMenu from "../adminComponent/SubMenu"
 import { IconContext } from "react-icons/lib";
+import SubMenu from './SubMenu';
 
 
 const Nav = styled.div`
@@ -61,9 +61,9 @@ function AdminSidebar() {
             <NavIcon to="#">
               <AiIcons.AiOutlineClose onClick={showSidebar} />
             </NavIcon>
-            {/* {SidebarData.map((item, index) => {
+            {SidebarData.map((item, index) => {
               return <SubMenu item={item} key={index}/>;
-            })} */}
+            })}
           </SidebarWrap>
         </SidebarNav>
       </IconContext.Provider>
