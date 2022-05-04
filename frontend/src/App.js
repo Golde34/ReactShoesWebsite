@@ -23,6 +23,11 @@ import HeaderAdmin from './components/adminComponent/HeaderAdmin';
 import AdminSidebar from './components/adminComponent/AdminSidebar';
 import AdminRoute from './components/adminComponent/AdminRoute';
 import AdminScreen from './views/AdminScreen';
+import { OrdersManage } from './views/adminPages/Orders';
+import { AddProducts, EditProducts, Products, ProductsManage } from './views/adminPages/Products';
+import Users, { EditUser } from './views/adminPages/Users';
+import { AddProductsType, EditCategory, ProductsTypeManage } from './views/adminPages/ProductsType';
+import { AddBrands, BrandsManage, EditBrand } from './views/adminPages/Brands';
 
 
 function App() {
@@ -52,6 +57,20 @@ function App() {
               <div className='row contentInside'>
                 <Routes>
                   <Route path="/" element={<AdminRoute><AdminScreen /> </AdminRoute>} exact></Route>
+                  <Route path='ordersManage' element={<AdminRoute><OrdersManage/></AdminRoute>}></Route>
+                  <Route path='/order/:id' element={<OrderScreen/>}></Route>
+                  <Route path='/products' element={<AdminRoute><Products /></AdminRoute>} ></Route>
+                  <Route path='/products/productsManage'  element={<AdminRoute><ProductsManage /></AdminRoute>}></Route>
+                  <Route path='/products/addProducts' element={<AdminRoute><AddProducts/></AdminRoute>}></Route>
+                  <Route path='/products/:id/edit' element={<AdminRoute><EditProducts /></AdminRoute>}></Route>
+                  <Route path='/usersManage' element={<AdminRoute><Users /></AdminRoute>}></Route>
+                  <Route path='/user/:id/edit' element={<AdminRoute><EditUser /></AdminRoute>}></Route>
+                  <Route path='/productsType/productsTypeManage'  element={<AdminRoute><ProductsTypeManage /></AdminRoute>}></Route>
+                  <Route path='/productsType/addProductsType' element={<AdminRoute><AddProductsType/></AdminRoute>}></Route>
+                  <Route path='/productsType/:id/edit' element={<AdminRoute><EditCategory /></AdminRoute>}></Route>
+                  <Route path='/brands/brandsManage'  element={<AdminRoute><BrandsManage /></AdminRoute>}></Route>
+                  <Route path='/brands/addBrands' element={<AdminRoute><AddBrands /></AdminRoute>}></Route>
+                  <Route path='/brands/:id/edit' element={<AdminRoute><EditBrand /></AdminRoute>}></Route>
                   <Route path='/changepassword' element={<PrivateRoute><ChangePassword /></PrivateRoute>}></Route>
                   <Route path='/account' element={<PrivateRoute><AccountScreen /></PrivateRoute>}></Route>
                 </Routes>

@@ -32,7 +32,7 @@ import {
     userDetailsReducer,
     userListReducer,
     userDeleteReducer,
-} from './reducers/userReducers.js';
+} from './reducers/userReducers';
 
 import {
     orderCreateReducer,

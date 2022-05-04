@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams, useNavigate, Link } from "react-router-dom";
+import { deleteOrder, listOrders, updateOrder } from "../../actions/orderActions";
 import LoadingBox from "../../components/subComponents/LoadingBox";
 import MessageBox from "../../components/subComponents/MessageBox";
-import { useDispatch, useSelector } from "react-redux";
 import { ORDER_DELETE_RESET, ORDER_UPDATE_RESET } from "../../constants/orderConstants";
-import { deleteOrder, updateOrder } from "../../actions/orderActions";
+import DoneIcon from '@material-ui/icons/Done';
+
 
 export const OrdersManage = () => {
     const [searchParam] = useSearchParams();
     const page = searchParam.get("page");
+    const navigate = useNavigate();
 
     const orderList = useSelector((state) => state.orderList);
     const { loading, error, orders, pages } = orderList;
@@ -16,7 +19,7 @@ export const OrdersManage = () => {
     const {
         loading: loadingDelete,
         error: errorDelete,
-        success: successDelete,
+        success: successDelete
     } = orderDelete;
     const orderUpdate = useSelector((state) => state.orderUpdate);
     const {
@@ -47,10 +50,12 @@ export const OrdersManage = () => {
     const updateStatus = (order) => {
         dispatch(updateOrder(order.idOrder));
     }
+
     function numberWithCommas(order) {
         const x = order.orderdetails.reduce((a, c) => a + c.quantityOrder * c.priceEach, 0);
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+
     return (
         <div className="order-admin-list">
             <h1>Quản lý đơn hàng</h1>
@@ -87,9 +92,8 @@ export const OrdersManage = () => {
                                     <td>{order.orderDate}</td>
                                     <td>{numberWithCommas(order)}</td>
                                     <td>
-                                        {
-                                            order.paymentMethod == 'PayPal' ? "Đã thanh toán" : "Thanh toán khi nhận hàng"
-                                        }</td>
+                                        {order.paymentMethod == 'PayPal' ? "Đã thanh toán" : "Thanh toán khi nhận hàng"}
+                                    </td>
                                     <td>{order.status}</td>
                                     <td>
                                         {order.shippedDate}
@@ -99,8 +103,9 @@ export const OrdersManage = () => {
                                             type="button"
                                             className="small"
                                             onClick={() => {
-                                                props.history.push(`/order/${order.idOrder}`);
+                                                navigate(`/order/${order.idOrder}`);
                                             }}
+                                            style={{backgroundColor:"Highlight"}}
                                         >
                                             Details
                                         </button>
@@ -108,6 +113,7 @@ export const OrdersManage = () => {
                                             type="button"
                                             className="small"
                                             onClick={() => deleteHandler(order)}
+                                            style={{backgroundColor:"GrayText"}}
                                         >
                                             Delete
                                         </button>
@@ -115,11 +121,11 @@ export const OrdersManage = () => {
                                             type="button"
                                             className="small"
                                             onClick={() => updateStatus(order)}
+                                            style={{backgroundColor:"Scrollbar"}}
                                         >
                                             <DoneIcon />
                                         </button>
                                     </td>
-
                                 </tr>
                             ))}
                         </tbody>
@@ -128,25 +134,20 @@ export const OrdersManage = () => {
                     <div className="pagination-container">
                         <div className="row center pagination">
                             {[...Array(pages).keys()].map((x) => (
-                                <Link
-                                    className={x === page ? 'active' : ''}
+                                <Link className={x === page ? 'active' : ''}
                                     key={x}
-                                    to={getFilterUrl({ page: x + 1 })}
+                                    to={getFilterUrl({page: x+1})}
                                 >
-                                    <li className='page-item'>
-                                        <span>
-                                            {x + 1}
-                                        </span>
+                                    <li className="page-item">
+                                        <span>{x+1}</span>
                                     </li>
                                 </Link>
                             ))}
                         </div>
                     </div>
-
                 </div>
-
-
-            )}
+            )
+            }
         </div>
     );
 }

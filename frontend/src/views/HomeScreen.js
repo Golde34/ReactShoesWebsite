@@ -35,7 +35,7 @@ export default function HomeScreen() {
                         <img className="home__image"
                             src="..//../image/background2.jpg" alt="" />
                         <div className="titleCategory">
-                            <span className="nav">Sản phẩm yêu thích</span>
+                            <span className="nav">Favourite Product</span>
                         </div>
                         <div className="home__row">
                             {products.map((product) => (

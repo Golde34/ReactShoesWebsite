@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import './css/Admin.css';
-import { Bar, Doughnut } from 'react-chartjs-2';
+import { Bar, Pie } from 'react-chartjs-2';
 import LoadingBox from "../components/subComponents/LoadingBox";
 import MessageBox from "../components/subComponents/MessageBox";
 import { useDispatch, useSelector } from "react-redux";
 import { showPltOrder } from "../actions/orderActions";
 import { showPlt } from "../actions/productActions";
+import Chart from 'chart.js/auto';
 
 
 export default function AdminScreen() {
@@ -22,7 +23,6 @@ export default function AdminScreen() {
 
   return (
     <div>
-
       <div className="content">
         {loading ? (
           <LoadingBox></LoadingBox>
@@ -30,7 +30,7 @@ export default function AdminScreen() {
           <MessageBox variant="danger"> {error}</MessageBox>
         ) : (
           <div className="chart">
-            <Doughnut
+            <Pie
               data={{
                 labels: plt ? plt.map((x) => (
                   x.category.categoryName
@@ -41,23 +41,22 @@ export default function AdminScreen() {
                     x.countProduct
                   )),
                   backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',]
+                    'rgba(255, 0, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(128, 128, 128, 0.5)'
+                  ],
+                  hoverOffset: 4
                 }]
               }}
-              height={400}
-              width={600}
+              height={250}
+              width={450}
               options={{
-                scales: {
-                  yAxes: [{
-                    ticks: {
-                      beginAtZero: true
-                    }
-                  }]
-                }, title: {
-                  display: true,
-                  text: 'Biểu đồ thống kê sản phẩm'
+                plugins:{
+                  title: {
+                    display:true,
+                    text: 'Biểu đồ thống kê sản phẩm',
+                  }
                 }
               }}
             />
@@ -81,9 +80,9 @@ export default function AdminScreen() {
                       x.countOrder
                     )),
                     backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',]
+                      'rgba(255, 0, 132, 0.5)',
+                      'rgba(54, 162, 235, 0.5)',
+                      'rgba(255, 206, 86, 0.5)',]
                   }]
                 }}
                 height={400}
@@ -96,11 +95,12 @@ export default function AdminScreen() {
                       }
                     }]
                   },
+                  plugins:{
                   title: {
                     display: true,
                     text: 'Biểu đồ thống kê đơn hàng theo ngày'
                   }
-                }}
+                }}}
               />
             </div>
           )}
